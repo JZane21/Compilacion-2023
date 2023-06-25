@@ -1,0 +1,9 @@
+grammar edu.upb.lp.IAmGroot with org.eclipse.xtext.common.Terminals
+
+generate iAmGroot "http://www.upb.edu/lp/IAmGroot"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

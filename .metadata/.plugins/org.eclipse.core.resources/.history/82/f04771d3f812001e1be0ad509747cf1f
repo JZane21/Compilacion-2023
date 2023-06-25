@@ -1,0 +1,36 @@
+grammar edu.upb.lp.IAmGroot with org.eclipse.xtext.common.Terminals
+
+generate iAmGroot "http://www.upb.edu/lp/IAmGroot"
+
+Program:
+	'WeAreGroot' '{' groots+=Groot* '}';
+
+Groot:
+	Sentence 'Leaf';
+
+Sentence:
+	Declaration | Assignation;
+
+Declaration:
+	name=ID 'is' type=GrootTypes;
+
+GrootTypes:
+	type='Numboot' value=InitializationNum | 'Stroot' InitializationStr | 'Boolt' InitializationBool;
+
+InitializationNum:
+	'->' int=INT;
+
+InitializationStr:
+	'->' string=STRING;
+
+InitializationBool:
+	'->' boolean=BOOLEAN;
+
+terminal BOOLEAN:
+	('#froot') | ('#troot');
+
+Assignation:
+	name=ID '->' value=AssignationValue;
+
+AssignationValue:
+	int=INT | string=STRING | boolean=BOOLEAN;
